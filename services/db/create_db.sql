@@ -1,10 +1,21 @@
 
+CREATE SEQUENCE public.panstwo_panstwo_id_seq;
+
+CREATE TABLE public.panstwo (
+                panstwo_id INTEGER NOT NULL DEFAULT nextval('public.panstwo_panstwo_id_seq'),
+                nazwa VARCHAR NOT NULL,
+                CONSTRAINT panstwo_id PRIMARY KEY (panstwo_id)
+);
+
+
+ALTER SEQUENCE public.panstwo_panstwo_id_seq OWNED BY public.panstwo.panstwo_id;
+
 CREATE SEQUENCE public.linia_lotnicza_linia_lotnicza_id_seq;
 
 CREATE TABLE public.linia_lotnicza (
                 linia_lotnicza_id INTEGER NOT NULL DEFAULT nextval('public.linia_lotnicza_linia_lotnicza_id_seq'),
                 nazwa VARCHAR NOT NULL,
-                panstwo VARCHAR NOT NULL,
+                panstwo_id INTEGER NOT NULL,
                 CONSTRAINT linia_lotnicza_id PRIMARY KEY (linia_lotnicza_id)
 );
 
@@ -41,8 +52,9 @@ CREATE SEQUENCE public.miasto_miasto_id_seq;
 CREATE TABLE public.miasto (
                 miasto_id INTEGER NOT NULL DEFAULT nextval('public.miasto_miasto_id_seq'),
                 nazwa VARCHAR NOT NULL,
-                szerokosc_geograficzna REAL NOT NULL,
+                panstwo_id INTEGER NOT NULL,
                 dlugosc_geograficzna REAL NOT NULL,
+                szerokosc_geograficzna REAL NOT NULL,
                 CONSTRAINT miasto_id PRIMARY KEY (miasto_id)
 );
 
@@ -78,6 +90,7 @@ CREATE SEQUENCE public.lot_lot_id_seq;
 
 CREATE TABLE public.lot (
                 lot_id INTEGER NOT NULL DEFAULT nextval('public.lot_lot_id_seq'),
+                kod VARCHAR NOT NULL,
                 samolot_id INTEGER NOT NULL,
                 lotnisko_odlotu_id INTEGER NOT NULL,
                 lotnisko_przylotu_id INTEGER NOT NULL,
@@ -88,6 +101,20 @@ CREATE TABLE public.lot (
 
 
 ALTER SEQUENCE public.lot_lot_id_seq OWNED BY public.lot.lot_id;
+
+ALTER TABLE public.linia_lotnicza ADD CONSTRAINT panstwo_linia_lotnicza_fk
+FOREIGN KEY (panstwo_id)
+REFERENCES public.panstwo (panstwo_id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE;
+
+ALTER TABLE public.miasto ADD CONSTRAINT panstwo_miasto_fk
+FOREIGN KEY (panstwo_id)
+REFERENCES public.panstwo (panstwo_id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE;
 
 ALTER TABLE public.samolot ADD CONSTRAINT linia_lotnicza_samolot_fk
 FOREIGN KEY (linia_lotnicza_id)
