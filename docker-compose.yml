@@ -19,11 +19,11 @@ services:
     image: postgres:11.5
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./services/db/sql/create_db.sql:/docker-entrypoint-initdb.d/1-create.sql
-      - ./services/db/sql/pop_db.sql:/docker-entrypoint-initdb.d/2-pop.sql
+      - ./services/db/create_db.sql:/docker-entrypoint-initdb.d/1-create.sql
+      - ./services/db/pop_db.sql:/docker-entrypoint-initdb.d/2-pop.sql
     environment:
-      POSTGRES_USER: postgres # no effect. user tomray
-      POSTGRES_PASSWORD: postgres # no effect. user tomray
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
       POSTGRES_DB: flight_radar_db
 
 volumes:

@@ -11,7 +11,7 @@ RUN apk update \
 
 # install dependencies
 RUN pip install --upgrade pip
-COPY requirements.txt requirements.txt
+COPY services/web/requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
 # copy project

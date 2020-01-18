@@ -8,13 +8,14 @@ from project import app
 @app.route("/")
 def hello_world():
     # test
-    conn = psycopg2.connect(dbname="flight_radar_db", user="tomray", host="db", password="tomray")
+    conn = psycopg2.connect(dbname="flight_radar_db", user="postgres", host="db", password="postgres")
     cur = conn.cursor()
-    cur.execute("SELECT * FROM test;")
+    cur.execute("SELECT * FROM lot;")
     items = cur.fetchall()
     conn.close()
     print(items)
     # /test
+
     return render_template("index.html")
 
 
