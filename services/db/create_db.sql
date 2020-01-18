@@ -36,9 +36,9 @@ ALTER SEQUENCE public.producent_producent_id_seq OWNED BY public.producent.produ
 CREATE SEQUENCE public.model_model_id_seq;
 
 CREATE TABLE public.model (
-                model_id VARCHAR NOT NULL DEFAULT nextval('public.model_model_id_seq'),
+                model_id INTEGER NOT NULL DEFAULT nextval('public.model_model_id_seq'),
+                nazwa VARCHAR NOT NULL,
                 producent_id INTEGER NOT NULL,
-                wersja VARCHAR NOT NULL,
                 liczba_miejsc VARCHAR NOT NULL,
                 masa REAL NOT NULL,
                 CONSTRAINT model_id PRIMARY KEY (model_id)
@@ -65,6 +65,7 @@ CREATE SEQUENCE public.lotnisko_lotnisko_id_seq;
 
 CREATE TABLE public.lotnisko (
                 lotnisko_id INTEGER NOT NULL DEFAULT nextval('public.lotnisko_lotnisko_id_seq'),
+                nazwa VARCHAR NOT NULL,
                 kod VARCHAR NOT NULL,
                 miasto_id INTEGER NOT NULL,
                 CONSTRAINT lotnisko_id PRIMARY KEY (lotnisko_id)
@@ -77,8 +78,8 @@ CREATE SEQUENCE public.samolot_samolot_id_seq;
 
 CREATE TABLE public.samolot (
                 samolot_id INTEGER NOT NULL DEFAULT nextval('public.samolot_samolot_id_seq'),
-                kod VARCHAR NOT NULL,
-                model_id VARCHAR NOT NULL,
+                nazwa VARCHAR NOT NULL,
+                model_id INTEGER NOT NULL,
                 linia_lotnicza_id INTEGER NOT NULL,
                 CONSTRAINT samolot_id PRIMARY KEY (samolot_id)
 );
@@ -94,8 +95,8 @@ CREATE TABLE public.lot (
                 samolot_id INTEGER NOT NULL,
                 lotnisko_odlotu_id INTEGER NOT NULL,
                 lotnisko_przylotu_id INTEGER NOT NULL,
-                czas_wylotu TIME NOT NULL,
-                czas_przylotu TIME NOT NULL,
+                czas_wylotu TIMESTAMP NOT NULL,
+                czas_przylotu TIMESTAMP NOT NULL,
                 CONSTRAINT lot_id PRIMARY KEY (lot_id)
 );
 

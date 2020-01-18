@@ -2,8 +2,7 @@
 <html lang="pl">
 
 <head>
-    <title>Flight Radar - Tomasz Rajchel</title>
-    <!-- {% block title %}{% endblock %} -->
+    <title>{% block title %}{% endblock %}</title>
     <meta charset="UTF-8" />
     <meta name="author" content="Tomasz Rajchel" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,21 +21,21 @@
     </div>
 
     <!-- Navbar -->
-    <ul class="nav nav-tabs">
+    <ul id="navbar" class="nav nav-tabs">
         <li class="nav-item">
-            <a href="#" class="nav-link">Mapa</a>
+            <a href="{{ url_for('index')}}" class="nav-link">Mapa</a>
         </li>
         <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tabele</a>
             <div class="dropdown-menu">
-                <a href="{{ url_for('tables')}}" class="dropdown-item">Lot</a>
-                <a href="#" class="dropdown-item">Lotnisko</a>
-                <a href="#" class="dropdown-item">Linia Lotnicza</a>
-                <a href="#" class="dropdown-item">Miasto</a>
-                <a href="#" class="dropdown-item">Model</a>
-                <a href="#" class="dropdown-item">Państwo</a>
-                <a href="#" class="dropdown-item">Producent</a>
-                <a href="#" class="dropdown-item">Samolot</a>
+                <a href="{{ url_for('tables', table_name='lot')}}" class="dropdown-item">Lot</a>
+                <a href="{{ url_for('tables', table_name='lotnisko')}}" class="dropdown-item">Lotnisko</a>
+                <a href="{{ url_for('tables', table_name='linia_lotnicza')}}" class="dropdown-item">Linia Lotnicza</a>
+                <a href="{{ url_for('tables', table_name='miasto')}}" class="dropdown-item">Miasto</a>
+                <a href="{{ url_for('tables', table_name='model')}}" class="dropdown-item">Model</a>
+                <a href="{{ url_for('tables', table_name='panstwo')}}" class="dropdown-item">Państwo</a>
+                <a href="{{ url_for('tables', table_name='producent')}}" class="dropdown-item">Producent</a>
+                <a href="{{ url_for('tables', table_name='samolot')}}" class="dropdown-item">Samolot</a>
             </div>
         </li>
         <li class="nav-item">
@@ -47,11 +46,13 @@
         </li>
     </ul>
 
-    {% block content %}{% endblock %}
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
 
     <!-- Footer -->
     <footer>
-        <span>Tomasz Rajchel - 2020</span>
+        <span>&copy; 2020 Tomasz Rajchel</span>
     </footer>
 
     <!-- JS for Bootstrap -->

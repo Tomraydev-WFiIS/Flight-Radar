@@ -1,37 +1,28 @@
 {% extends "main.html" %}
+{% block title %}Tabele{% endblock %}
 {% block content %}
-
 <div class="container">
     <div class="row">
         <div class="col-12">
             <table class="table table-stripped table-hover">
-                <thead>
-                    <tr>
-                      <th>Firstname</th>
-                      <th>Lastname</th>
-                      <th>Email</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>John</td>
-                      <td>Doe</td>
-                      <td>john@example.com</td>
-                    </tr>
-                    <tr>
-                      <td>Mary</td>
-                      <td>Moe</td>
-                      <td>mary@example.com</td>
-                    </tr>
-                    <tr>
-                      <td>July</td>
-                      <td>Dooley</td>
-                      <td>july@example.com</td>
-                    </tr>
-                  </tbody>
+                <thead class="thead-dark">
+                  <tr>
+                    {% for name in colnames %}
+                    <th>{{ name }}</th>
+                    {% endfor %}
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for row in table %}
+                  <tr>
+                    {% for field in row %}
+                    <td> {{ field }}</td>
+                    {% endfor %}
+                  </tr>
+                  {% endfor %}
+                </tbody>
             </table>
         </div>
     </div>
 </div>
-
 {% endblock content %}
