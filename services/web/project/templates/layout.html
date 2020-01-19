@@ -30,7 +30,7 @@
             <div class="dropdown-menu">
                 <a href="{{ url_for('tables', table_name='lot')}}" class="dropdown-item">Lot</a>
                 <a href="{{ url_for('tables', table_name='lotnisko')}}" class="dropdown-item">Lotnisko</a>
-                <a href="{{ url_for('tables', table_name='linia_lotnicza')}}" class="dropdown-item">Linia Lotnicza</a>
+                <a href="{{ url_for('tables', table_name='linia_lotnicza')}}" class="dropdown-item">Linia_Lotnicza</a>
                 <a href="{{ url_for('tables', table_name='miasto')}}" class="dropdown-item">Miasto</a>
                 <a href="{{ url_for('tables', table_name='model')}}" class="dropdown-item">Model</a>
                 <a href="{{ url_for('tables', table_name='panstwo')}}" class="dropdown-item">Państwo</a>
@@ -38,15 +38,46 @@
                 <a href="{{ url_for('tables', table_name='samolot')}}" class="dropdown-item">Samolot</a>
             </div>
         </li>
-        <li class="nav-item">
-            <a href="#" class="nav-link">Widoki</a>
+        <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dodaj</a>
+            <div class="dropdown-menu">
+                <a href="{{ url_for('insert', table_name='lot')}}" class="dropdown-item">Lot</a>
+                <a href="{{ url_for('insert', table_name='lotnisko')}}" class="dropdown-item">Lotnisko</a>
+                <a href="{{ url_for('insert', table_name='linia_lotnicza')}}" class="dropdown-item">Linia_Lotnicza</a>
+                <a href="{{ url_for('insert', table_name='miasto')}}" class="dropdown-item">Miasto</a>
+                <a href="{{ url_for('insert', table_name='model')}}" class="dropdown-item">Model</a>
+                <a href="{{ url_for('insert', table_name='panstwo')}}" class="dropdown-item">Państwo</a>
+                <a href="{{ url_for('insert', table_name='producent')}}" class="dropdown-item">Producent</a>
+                <a href="{{ url_for('insert', table_name='samolot')}}" class="dropdown-item">Samolot</a>
+            </div>
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link">Dodaj</a>
+            <a href="{{ url_for('view')}}" class="nav-link">Widoki</a>
         </li>
     </ul>
 
     <div class="content">
+        <!-- FLASH ERRORS -->
+        {% with errors = get_flashed_messages(category_filter=["error"]) %}
+        {% if errors %}
+        <ul>
+            {%- for msg in errors %}
+            <li class="alert alert-danger">{{ msg }}</li>
+            {% endfor -%}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        {% with messages = get_flashed_messages(category_filter=["success"]) %}
+        {% if messages %}
+        <ul>
+            {%- for msg in messages %}
+            <li class="alert alert-success">{{ msg }}</li>
+            {% endfor -%}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
         {% block content %}{% endblock %}
     </div>
 

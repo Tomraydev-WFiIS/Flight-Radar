@@ -95,7 +95,7 @@ CREATE TABLE public.lot (
                 samolot_id INTEGER NOT NULL,
                 lotnisko_odlotu_id INTEGER NOT NULL,
                 lotnisko_przylotu_id INTEGER NOT NULL,
-                czas_wylotu TIMESTAMP NOT NULL,
+                czas_odlotu TIMESTAMP NOT NULL,
                 czas_przylotu TIMESTAMP NOT NULL,
                 CONSTRAINT lot_id PRIMARY KEY (lot_id)
 );

@@ -6,9 +6,27 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color:#444;
 }
+#navbar {
+    background-color: #f5f5f5;
+}
+
+#navbar>li>a {
+    color: #444;
+}
+
+#navbar>li>a:hover {
+    color: #000;
+    border: solid 1px #444;
+    border-bottom: none;
+}
 
 .content {
-    padding: 1em 0 4em 0;
+    padding: 1px 0 4em 0;
+}
+
+label {
+    font-weight: bold;
+    text-align: right;
 }
 
 img#world_map {

@@ -75,9 +75,9 @@ INSERT INTO lotnisko (nazwa, kod, miasto_id) VALUES ('John F. Kennedy Internatio
 INSERT INTO lotnisko (nazwa, kod, miasto_id) VALUES ('Dubai International Airport', 'DXB', 6);
 
 -- lot
-INSERT INTO lot (kod, samolot_id, lotnisko_odlotu_id, lotnisko_przylotu_id, czas_wylotu, czas_przylotu) VALUES ('FR4084', 4, 1, 2, '2020-01-20 12:00:00', '2020-01-20 15:00:00');
-INSERT INTO lot (kod, samolot_id, lotnisko_odlotu_id, lotnisko_przylotu_id, czas_wylotu, czas_przylotu) VALUES ('FR4085', 5, 2, 1, '2020-01-20 12:00:00', '2020-01-20 15:00:00');
-INSERT INTO lot (kod, samolot_id, lotnisko_odlotu_id, lotnisko_przylotu_id, czas_wylotu, czas_przylotu) VALUES ('FR4086', 6, 2, 3, '2020-01-20 12:00:00', '2020-01-20 14:00:00');
-INSERT INTO lot (kod, samolot_id, lotnisko_odlotu_id, lotnisko_przylotu_id, czas_wylotu, czas_przylotu) VALUES ('LH726', 7, 1, 3, '2020-01-20 12:00:00', '2020-01-20 20:00:00');
-INSERT INTO lot (kod, samolot_id, lotnisko_odlotu_id, lotnisko_przylotu_id, czas_wylotu, czas_przylotu) VALUES ('LH727', 8, 3, 1, '2020-01-20 12:00:00', '2020-01-20 24:00:00');
-INSERT INTO lot (kod, samolot_id, lotnisko_odlotu_id, lotnisko_przylotu_id, czas_wylotu, czas_przylotu) VALUES ('LH728', 9, 3, 5, '2020-01-20 12:00:00', '2020-01-20 20:00:00');
+INSERT INTO lot (kod, samolot_id, lotnisko_odlotu_id, lotnisko_przylotu_id, czas_odlotu, czas_przylotu) VALUES ('FR4084', 4, 1, 2, '2020-01-20 12:00:00', '2020-01-20 15:00:00');
+INSERT INTO lot (kod, samolot_id, lotnisko_odlotu_id, lotnisko_przylotu_id, czas_odlotu, czas_przylotu) VALUES ('FR4085', 5, 2, 1, '2020-01-20 12:00:00', '2020-01-20 15:00:00');
+INSERT INTO lot (kod, samolot_id, lotnisko_odlotu_id, lotnisko_przylotu_id, czas_odlotu, czas_przylotu) VALUES ('FR4086', 6, 2, 3, '2020-01-20 12:00:00', '2020-01-20 14:00:00');
+INSERT INTO lot (kod, samolot_id, lotnisko_odlotu_id, lotnisko_przylotu_id, czas_odlotu, czas_przylotu) VALUES ('LH726', 7, 1, 3, '2020-01-20 12:00:00', '2020-01-20 20:00:00');
+INSERT INTO lot (kod, samolot_id, lotnisko_odlotu_id, lotnisko_przylotu_id, czas_odlotu, czas_przylotu) VALUES ('LH727', 8, 3, 1, '2020-01-20 12:00:00', '2020-01-20 24:00:00');
+INSERT INTO lot (kod, samolot_id, lotnisko_odlotu_id, lotnisko_przylotu_id, czas_odlotu, czas_przylotu) VALUES ('LH728', 9, 3, 5, '2020-01-20 12:00:00', '2020-01-20 20:00:00');

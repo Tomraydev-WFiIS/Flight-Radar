@@ -1,6 +1,6 @@
 import psycopg2
-import pprint
-pp = pprint.PrettyPrinter(indent=4)
+import pprint # debug
+pp = pprint.PrettyPrinter(indent=4) # debug
 
 class Cursor:
     def __enter__(self):
@@ -9,26 +9,47 @@ class Cursor:
         return self.cur
 
     def __exit__(self, exception_type, exception_value, traceback):
+        self.conn.commit()
         self.conn.close()
 
-def select(table, value):
+def select(table_name, value, resolve=False):
     with Cursor() as c:
-        c.execute("SELECT {} FROM {};".format(value, table))
+        c.execute("SELECT {} FROM {};".format(value, table_name))
         colnames = [col[0] for col in c.description]
         table = c.fetchall()
-        mutable = [list(row) for row in table]
 
         # resolve id's to names
-        for i in range(1, len(colnames)):
-            name = colnames[i] # producent_id
-            if "_id" in name:
-                name = name.replace("_odlotu", "")
-                name = name.replace("_przylotu", "")
-                for row in mutable:
-                    foreign_id = row[i]
-                    with Cursor() as c2:
-                        c2.execute("SELECT nazwa FROM {} WHERE {}={};".format(name.replace("_id", ""), name, foreign_id))
-                        new_name = c2.fetchall()[0][0]
-                    row[i] = new_name
+        if resolve:
+            table = [list(row) for row in table]
+            for i in range(1, len(colnames)):
+                name = colnames[i]
+                if "_id" in name:
+                    name = name.replace("_odlotu", "")
+                    name = name.replace("_przylotu", "")
+                    for row in table:
+                        foreign_id = row[i]
+                        with Cursor() as c2:
+                            c2.execute("SELECT nazwa FROM {} WHERE {}={};".format(name.replace("_id", ""), name, foreign_id))
+                            new_name = c2.fetchall()[0][0]
+                        row[i] = new_name
 
-    return [mutable, colnames]
+    return (table, colnames)
+
+
+def insert(table_name, form):
+    with Cursor() as c:
+        columns = []
+        values = []
+        for field in form:
+            if field.name not in ["csrf_token", "submit"] and field.data not in ["", None]:
+                columns.append(field.name)
+                values.append(field.data)
+
+        columns = (", ").join(columns)
+        values = ["\'" + str(val) + "\'" for val in values]
+        values = (", ").join(values)
+        query = "INSERT INTO {} ({}) VALUES ({});".format(table_name, columns, values)
+        print(query) # debug
+        c.execute(query)
+
+    return True

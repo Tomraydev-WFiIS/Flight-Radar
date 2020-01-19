@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block title %}Flight Radar - Dodaj{% endblock %}
+{% block content %}
+
+<!-- INSERT -->
+<div class="container">
+  <h3 class="col-sm-6 offset-sm-4">Dodaj wiersz do tabeli '{{ table_name }}'</h3>
+  <form class="form-horizontal" action="{{ url_for('insert', table_name=table_name) }}" method="POST">
+    {{ form.hidden_tag() }}
+      {% for field in form if field.name is not in ['csrf_token', 'submit'] %}
+      <div class="form-group row">
+          {{ field.label(class="col-sm-4 control-label") }}
+          <div class="col-sm-4">
+              {{ field(class="form-control") }}
+          </div>
+      </div>
+      {% endfor %}
+
+      <div class="form-group row">        
+          <div class="col-sm-4 offset-sm-4">
+              {{ form.submit(class="btn btn-success") }}
+          </div>
+      </div>
+  </form>
+</div>
+
+{% endblock content %}
