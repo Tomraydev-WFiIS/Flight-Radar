@@ -16,8 +16,8 @@
 
 <body>
     <!-- Jumbotron -->
-    <div class="text-center">
-        <h1 class="display-4">Flight Radar</h1>
+    <div class="text-center header">
+        <h1>Flight Radar</h1>
     </div>
 
     <!-- Navbar -->
@@ -51,8 +51,15 @@
                 <a href="{{ url_for('insert', table_name='samolot')}}" class="dropdown-item">Samolot</a>
             </div>
         </li>
-        <li class="nav-item">
-            <a href="{{ url_for('view')}}" class="nav-link">Widoki</a>
+        <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Widoki</a>
+            <div class="dropdown-menu">
+                <a href="{{ url_for('tables', table_name='oczekujace_loty')}}" class="dropdown-item">Oczekujące loty</a>
+                <a href="{{ url_for('tables', table_name='aktualne_loty')}}" class="dropdown-item">Aktualne loty</a>
+                <a href="{{ url_for('tables', table_name='zakonczone_loty')}}" class="dropdown-item">Zakończone loty</a>
+                <a href="{{ url_for('tables', table_name='samoloty_w_powietrzu')}}" class="dropdown-item">Samoloty w powietrzu</a>
+                <a href="{{ url_for('tables', table_name='floty')}}" class="dropdown-item">Floty Linii Lotniczych</a>
+            </div>
         </li>
     </ul>
 

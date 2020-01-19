@@ -3,7 +3,7 @@ CREATE SEQUENCE public.panstwo_panstwo_id_seq;
 
 CREATE TABLE public.panstwo (
                 panstwo_id INTEGER NOT NULL DEFAULT nextval('public.panstwo_panstwo_id_seq'),
-                nazwa VARCHAR NOT NULL,
+                nazwa_panstwa VARCHAR NOT NULL,
                 CONSTRAINT panstwo_id PRIMARY KEY (panstwo_id)
 );
 
@@ -14,7 +14,7 @@ CREATE SEQUENCE public.linia_lotnicza_linia_lotnicza_id_seq;
 
 CREATE TABLE public.linia_lotnicza (
                 linia_lotnicza_id INTEGER NOT NULL DEFAULT nextval('public.linia_lotnicza_linia_lotnicza_id_seq'),
-                nazwa VARCHAR NOT NULL,
+                nazwa_linii VARCHAR NOT NULL,
                 panstwo_id INTEGER NOT NULL,
                 CONSTRAINT linia_lotnicza_id PRIMARY KEY (linia_lotnicza_id)
 );
@@ -26,7 +26,7 @@ CREATE SEQUENCE public.producent_producent_id_seq;
 
 CREATE TABLE public.producent (
                 producent_id INTEGER NOT NULL DEFAULT nextval('public.producent_producent_id_seq'),
-                nazwa VARCHAR NOT NULL,
+                nazwa_producenta VARCHAR NOT NULL,
                 CONSTRAINT producent_id PRIMARY KEY (producent_id)
 );
 
@@ -37,7 +37,7 @@ CREATE SEQUENCE public.model_model_id_seq;
 
 CREATE TABLE public.model (
                 model_id INTEGER NOT NULL DEFAULT nextval('public.model_model_id_seq'),
-                nazwa VARCHAR NOT NULL,
+                nazwa_modelu VARCHAR NOT NULL,
                 producent_id INTEGER NOT NULL,
                 liczba_miejsc VARCHAR NOT NULL,
                 masa REAL NOT NULL,
@@ -51,7 +51,7 @@ CREATE SEQUENCE public.miasto_miasto_id_seq;
 
 CREATE TABLE public.miasto (
                 miasto_id INTEGER NOT NULL DEFAULT nextval('public.miasto_miasto_id_seq'),
-                nazwa VARCHAR NOT NULL,
+                nazwa_miasta VARCHAR NOT NULL,
                 panstwo_id INTEGER NOT NULL,
                 dlugosc_geograficzna REAL NOT NULL,
                 szerokosc_geograficzna REAL NOT NULL,
@@ -65,8 +65,8 @@ CREATE SEQUENCE public.lotnisko_lotnisko_id_seq;
 
 CREATE TABLE public.lotnisko (
                 lotnisko_id INTEGER NOT NULL DEFAULT nextval('public.lotnisko_lotnisko_id_seq'),
-                nazwa VARCHAR NOT NULL,
-                kod VARCHAR NOT NULL,
+                nazwa_lotniska VARCHAR NOT NULL,
+                kod_lotniska VARCHAR NOT NULL,
                 miasto_id INTEGER NOT NULL,
                 CONSTRAINT lotnisko_id PRIMARY KEY (lotnisko_id)
 );
@@ -78,7 +78,7 @@ CREATE SEQUENCE public.samolot_samolot_id_seq;
 
 CREATE TABLE public.samolot (
                 samolot_id INTEGER NOT NULL DEFAULT nextval('public.samolot_samolot_id_seq'),
-                nazwa VARCHAR NOT NULL,
+                numer_rejestracyjny VARCHAR NOT NULL,
                 model_id INTEGER NOT NULL,
                 linia_lotnicza_id INTEGER NOT NULL,
                 CONSTRAINT samolot_id PRIMARY KEY (samolot_id)
@@ -91,7 +91,7 @@ CREATE SEQUENCE public.lot_lot_id_seq;
 
 CREATE TABLE public.lot (
                 lot_id INTEGER NOT NULL DEFAULT nextval('public.lot_lot_id_seq'),
-                kod VARCHAR NOT NULL,
+                kod_lotu VARCHAR NOT NULL,
                 samolot_id INTEGER NOT NULL,
                 lotnisko_odlotu_id INTEGER NOT NULL,
                 lotnisko_przylotu_id INTEGER NOT NULL,

@@ -2,26 +2,40 @@ body {
     margin:0;
     position:relative;
     min-height: 100vh;
-    background-color: #fefefe;
+    background-color: #eeeeee;
     font-family: Arial, Helvetica, sans-serif;
-    color:#444;
+    color:#eee;
 }
+.header {
+    background-color: #222831;
+    padding-bottom: 4px;
+}
+.header>h1 {
+    margin:0;
+}
+
 #navbar {
-    background-color: #f5f5f5;
+    background-color: #393e46;
 }
 
 #navbar>li>a {
-    color: #444;
+    color: #eee;
 }
 
 #navbar>li>a:hover {
-    color: #000;
-    border: solid 1px #444;
+    color: #fff;
+    border: solid 1px #eee;
     border-bottom: none;
 }
 
+.dropdown-toggle[aria-expanded="true"] {
+    background-color: #393e46 !important;
+    color: #fff;
+}
+
 .content {
-    padding: 1px 0 4em 0;
+    padding: 1em 0 4em 0;
+    color: #222831;
 }
 
 label {
@@ -34,11 +48,15 @@ img#world_map {
     width: 100%;
 }
 
+.table-viewer {
+    overflow-x: auto;
+}
+
 footer {
     position: absolute;
     bottom: 0;
     width: 100%;
     line-height: 3em;
-	background-color: #eee;
+	background-color: #00adb5;
     text-align:	center;
 }
