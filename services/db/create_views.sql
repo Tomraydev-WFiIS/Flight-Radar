@@ -1,6 +1,14 @@
-CREATE OR REPLACE VIEW oczekujace_loty AS SELECT * FROM lot WHERE current_timestamp<czas_odlotu;
-CREATE OR REPLACE VIEW aktualne_loty AS SELECT * FROM lot WHERE current_timestamp>czas_odlotu AND current_timestamp<czas_przylotu;
-CREATE OR REPLACE VIEW zakonczone_loty AS SELECT * FROM lot WHERE current_timestamp>czas_przylotu;
+CREATE OR REPLACE VIEW
+oczekujace_loty AS SELECT l.kod_lotu, s.numer_rejestracyjny, l.lotnisko_odlotu_id, l.lotnisko_przylotu_id, l.czas_odlotu, l.czas_przylotu
+FROM lot l JOIN samolot s ON s.samolot_id = l.samolot_id WHERE current_timestamp<czas_odlotu;
+
+CREATE OR REPLACE VIEW
+aktualne_loty AS SELECT l.kod_lotu, s.numer_rejestracyjny, l.lotnisko_odlotu_id, l.lotnisko_przylotu_id, l.czas_odlotu, l.czas_przylotu
+FROM lot l JOIN samolot s ON s.samolot_id = l.samolot_id WHERE current_timestamp>czas_odlotu AND current_timestamp<czas_przylotu;
+
+CREATE OR REPLACE VIEW
+zakonczone_loty AS SELECT l.kod_lotu, s.numer_rejestracyjny, l.lotnisko_odlotu_id, l.lotnisko_przylotu_id, l.czas_odlotu, l.czas_przylotu
+FROM lot l JOIN samolot s ON s.samolot_id = l.samolot_id WHERE current_timestamp>czas_przylotu;
 
 CREATE OR REPLACE VIEW samoloty_w_powietrzu AS
 SELECT s.samolot_id, s.numer_rejestracyjny, m.nazwa_modelu, ll.nazwa_linii, l.kod_lotu, l.lotnisko_odlotu_id, l.lotnisko_przylotu_id, l.czas_odlotu, l.czas_przylotu
