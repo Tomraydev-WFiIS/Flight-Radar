@@ -39,7 +39,7 @@ CREATE TABLE public.model (
                 model_id INTEGER NOT NULL DEFAULT nextval('public.model_model_id_seq'),
                 nazwa_modelu VARCHAR NOT NULL,
                 producent_id INTEGER NOT NULL,
-                liczba_miejsc VARCHAR NOT NULL,
+                liczba_miejsc INTEGER NOT NULL,
                 masa REAL NOT NULL,
                 CONSTRAINT model_id PRIMARY KEY (model_id)
 );
