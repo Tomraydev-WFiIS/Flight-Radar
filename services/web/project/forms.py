@@ -89,7 +89,7 @@ class Producent(FlaskForm):
 
 
 class Samolot(FlaskForm):
-    nazwa_samolotu = StringField("nazwa_samolotu", validators=[DataRequired()])
+    numer_rejestracyjny = StringField("numer_rejestracyjny", validators=[DataRequired()])
     model_id = IntegerField("model_id", validators=[DataRequired()])
     linia_lotnicza_id = IntegerField("linia_lotnicza_id", validators=[DataRequired()])
     submit = SubmitField()

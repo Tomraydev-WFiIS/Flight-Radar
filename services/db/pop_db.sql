@@ -38,19 +38,19 @@ INSERT INTO linia_lotnicza (nazwa_linii, panstwo_id) VALUES ('Emirates', 6);
     INSERT INTO samolot (numer_rejestracyjny, model_id, linia_lotnicza_id) VALUES ('EI-AAC', 1, 2);
 
     -- Lufthansa
-    INSERT INTO samolot (numer_rejestracyjny, model_id, linia_lotnicza_id) VALUES ('D-AAAA', 3, 3);
+    INSERT INTO samolot (numer_rejestracyjny, model_id, linia_lotnicza_id) VALUES ('D-AAAA', 2, 3);
     INSERT INTO samolot (numer_rejestracyjny, model_id, linia_lotnicza_id) VALUES ('D-AAAB', 3, 3);
-    INSERT INTO samolot (numer_rejestracyjny, model_id, linia_lotnicza_id) VALUES ('D-AAAC', 3, 3);
+    INSERT INTO samolot (numer_rejestracyjny, model_id, linia_lotnicza_id) VALUES ('D-AAAC', 2, 3);
 
     -- China Southern
     INSERT INTO samolot (numer_rejestracyjny, model_id, linia_lotnicza_id) VALUES ('B-0000', 3, 4);
-    INSERT INTO samolot (numer_rejestracyjny, model_id, linia_lotnicza_id) VALUES ('B-0001', 3, 4);
+    INSERT INTO samolot (numer_rejestracyjny, model_id, linia_lotnicza_id) VALUES ('B-0001', 2, 4);
     INSERT INTO samolot (numer_rejestracyjny, model_id, linia_lotnicza_id) VALUES ('B-0002', 3, 4);
 
     -- Delta
-    INSERT INTO samolot (numer_rejestracyjny, model_id, linia_lotnicza_id) VALUES ('N-00000', 2, 5);
+    INSERT INTO samolot (numer_rejestracyjny, model_id, linia_lotnicza_id) VALUES ('N-00000', 1, 5);
     INSERT INTO samolot (numer_rejestracyjny, model_id, linia_lotnicza_id) VALUES ('N-00001', 2, 5);
-    INSERT INTO samolot (numer_rejestracyjny, model_id, linia_lotnicza_id) VALUES ('N-00002', 2, 5);
+    INSERT INTO samolot (numer_rejestracyjny, model_id, linia_lotnicza_id) VALUES ('N-00002', 1, 5);
 
     -- Emirates
     INSERT INTO samolot (numer_rejestracyjny, model_id, linia_lotnicza_id) VALUES ('A6-AAA', 3, 6);

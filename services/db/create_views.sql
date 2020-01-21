@@ -18,8 +18,15 @@ JOIN linia_lotnicza ll ON s.linia_lotnicza_id = ll.linia_lotnicza_id
 JOIN lot l ON s.samolot_id = l.samolot_id
 WHERE current_timestamp>l.czas_odlotu AND current_timestamp<l.czas_przylotu;
 
+-- CREATE OR REPLACE VIEW floty AS
+-- SELECT COUNT(s.samolot_id) AS ilosc_samolotow, ll.nazwa_linii
+-- FROM samolot s
+-- JOIN linia_lotnicza ll ON s.linia_lotnicza_id = ll.linia_lotnicza_id
+-- GROUP BY ll.nazwa_linii;
+
 CREATE OR REPLACE VIEW floty AS
-SELECT COUNT(s.samolot_id), ll.nazwa_linii
-FROM samolot s
-JOIN linia_lotnicza ll ON s.linia_lotnicza_id = ll.linia_lotnicza_id
-GROUP BY ll.nazwa_linii;
+SELECT ll.nazwa_linii, m.nazwa_modelu, COUNT(s.model_id) AS ilosc_samolotow
+FROM linia_lotnicza ll
+JOIN samolot s ON (ll.linia_lotnicza_id=s.linia_lotnicza_id)
+JOIN model m ON (s.model_id=m.model_id)
+GROUP BY ll.nazwa_linii, m.nazwa_modelu;
