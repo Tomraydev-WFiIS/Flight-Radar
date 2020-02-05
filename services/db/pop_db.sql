@@ -59,12 +59,12 @@ INSERT INTO linia_lotnicza (nazwa_linii, panstwo_id) VALUES ('Emirates', 6);
 
 
 -- miasto
-INSERT INTO miasto (nazwa_miasta, panstwo_id, dlugosc_geograficzna, szerokosc_geograficzna) VALUES ('Krakow', 1, 50.04, 19.72);
-INSERT INTO miasto (nazwa_miasta, panstwo_id, dlugosc_geograficzna, szerokosc_geograficzna) VALUES ('Dublin', 2, 52.32, -6.52);
-INSERT INTO miasto (nazwa_miasta, panstwo_id, dlugosc_geograficzna, szerokosc_geograficzna) VALUES ('Berlin', 3, 51.51, 13.14);
-INSERT INTO miasto (nazwa_miasta, panstwo_id, dlugosc_geograficzna, szerokosc_geograficzna) VALUES ('Pekin', 4, 39.94, 116.12);
-INSERT INTO miasto (nazwa_miasta, panstwo_id, dlugosc_geograficzna, szerokosc_geograficzna) VALUES ('Nowy Jork', 5, 40.70, -74.26);
-INSERT INTO miasto (nazwa_miasta, panstwo_id, dlugosc_geograficzna, szerokosc_geograficzna) VALUES ('Dubaj', 6, 25.08, 54.95);
+INSERT INTO miasto (nazwa_miasta, panstwo_id, szerokosc_geograficzna, dlugosc_geograficzna) VALUES ('Krakow', 1, 50.04, 19.72);
+INSERT INTO miasto (nazwa_miasta, panstwo_id, szerokosc_geograficzna, dlugosc_geograficzna) VALUES ('Dublin', 2, 52.32, -6.52);
+INSERT INTO miasto (nazwa_miasta, panstwo_id, szerokosc_geograficzna, dlugosc_geograficzna) VALUES ('Berlin', 3, 51.51, 13.14);
+INSERT INTO miasto (nazwa_miasta, panstwo_id, szerokosc_geograficzna, dlugosc_geograficzna) VALUES ('Pekin', 4, 39.94, 116.12);
+INSERT INTO miasto (nazwa_miasta, panstwo_id, szerokosc_geograficzna, dlugosc_geograficzna) VALUES ('Nowy Jork', 5, 40.70, -74.26);
+INSERT INTO miasto (nazwa_miasta, panstwo_id, szerokosc_geograficzna, dlugosc_geograficzna) VALUES ('Dubaj', 6, 25.08, 54.95);
 
 -- lotnisko
 INSERT INTO lotnisko (nazwa_lotniska, kod_lotniska, miasto_id) VALUES ('John Paul II International Kraków-Balice', 'KRK', 1);
@@ -75,9 +75,9 @@ INSERT INTO lotnisko (nazwa_lotniska, kod_lotniska, miasto_id) VALUES ('John F. 
 INSERT INTO lotnisko (nazwa_lotniska, kod_lotniska, miasto_id) VALUES ('Dubai International Airport', 'DXB', 6);
 
 -- lot
-INSERT INTO lot (kod_lotu, samolot_id, lotnisko_odlotu_id, lotnisko_przylotu_id, czas_odlotu, czas_przylotu) VALUES ('FR4084', 4, 1, 2, '2019-12-25 12:00:00', '2019-01-20 15:00:00');
-INSERT INTO lot (kod_lotu, samolot_id, lotnisko_odlotu_id, lotnisko_przylotu_id, czas_odlotu, czas_przylotu) VALUES ('FR4085', 5, 2, 1, '2019-12-25 12:00:00', '2019-01-20 15:00:00');
+INSERT INTO lot (kod_lotu, samolot_id, lotnisko_odlotu_id, lotnisko_przylotu_id, czas_odlotu, czas_przylotu) VALUES ('FR4084', 4, 1, 2, '2019-12-25 12:00:00', '2019-12-25 15:00:00');
+INSERT INTO lot (kod_lotu, samolot_id, lotnisko_odlotu_id, lotnisko_przylotu_id, czas_odlotu, czas_przylotu) VALUES ('FR4085', 5, 2, 1, '2019-12-25 12:00:00', '2019-12-25 15:00:00');
 INSERT INTO lot (kod_lotu, samolot_id, lotnisko_odlotu_id, lotnisko_przylotu_id, czas_odlotu, czas_przylotu) VALUES ('FR4086', 6, 2, 3, current_timestamp, current_timestamp + (6 * interval '1 hour'));
 INSERT INTO lot (kod_lotu, samolot_id, lotnisko_odlotu_id, lotnisko_przylotu_id, czas_odlotu, czas_przylotu) VALUES ('LH726', 7, 1, 3, current_timestamp, current_timestamp + (6 * interval '1 hour'));
-INSERT INTO lot (kod_lotu, samolot_id, lotnisko_odlotu_id, lotnisko_przylotu_id, czas_odlotu, czas_przylotu) VALUES ('LH727', 8, 3, 1, '2021-01-20 12:00:00', '2020-01-20 24:00:00');
-INSERT INTO lot (kod_lotu, samolot_id, lotnisko_odlotu_id, lotnisko_przylotu_id, czas_odlotu, czas_przylotu) VALUES ('LH728', 9, 3, 5, '2021-01-20 12:00:00', '2020-01-20 20:00:00');
+INSERT INTO lot (kod_lotu, samolot_id, lotnisko_odlotu_id, lotnisko_przylotu_id, czas_odlotu, czas_przylotu) VALUES ('LH727', 8, 3, 1, '2021-01-20 12:00:00', '2021-01-20 24:00:00');
+INSERT INTO lot (kod_lotu, samolot_id, lotnisko_odlotu_id, lotnisko_przylotu_id, czas_odlotu, czas_przylotu) VALUES ('LH728', 9, 3, 5, '2021-01-20 12:00:00', '2021-01-20 20:00:00');

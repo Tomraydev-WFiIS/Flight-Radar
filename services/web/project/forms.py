@@ -1,19 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField, DecimalField, DateTimeField, SubmitField
-from wtforms.validators import DataRequired, ValidationError
-
-# custom validator \/
-# class Unique:
-#     def __init__(self, model, field, message=u"This element already exists."):
-#         self.model = model
-#         self.field = field
-#         self.message = message
-
-#     def __call__(self, form, field):
-#         check = self.model.query.filter(self.field == field.data).first()
-#         if check:
-#             raise ValidationError(self.message)
-
+from wtforms.validators import DataRequired, ValidationError, InputRequired
 
 def get_all_forms():
     all_forms = {
@@ -53,7 +40,7 @@ class Lotnisko(FlaskForm):
 
 
 class LiniaLotnicza(FlaskForm):
-    nazwa_lotu = StringField("nazwa_lotu", validators=[DataRequired()])
+    nazwa_linii = StringField("nazwa_linii", validators=[DataRequired()])
     panstwo_id = IntegerField("panstwo_id", validators=[DataRequired()])
     submit = SubmitField()
 
@@ -62,10 +49,10 @@ class Miasto(FlaskForm):
     nazwa_miasta = StringField("nazwa_miasta", validators=[DataRequired()])
     panstwo_id = IntegerField("panstwo_id", validators=[DataRequired()])
     dlugosc_geograficzna = DecimalField(
-        "dlugosc_geograficzna", validators=[DataRequired()]
+        "dlugosc_geograficzna", validators=[InputRequired()]
     )
     szerokosc_geograficzna = DecimalField(
-        "szerokosc_geograficzna", validators=[DataRequired()]
+        "szerokosc_geograficzna", validators=[InputRequired()]
     )
     submit = SubmitField()
 
@@ -74,7 +61,7 @@ class Model(FlaskForm):
     nazwa_modelu = StringField("nazwa_modelu", validators=[DataRequired()])
     producent_id = IntegerField("producent_id", validators=[DataRequired()])
     liczba_miejsc = StringField("liczba_miejsc", validators=[DataRequired()])
-    masa = DecimalField("masa", validators=[DataRequired()])
+    masa = DecimalField("masa", validators=[InputRequired()])
     submit = SubmitField()
 
 

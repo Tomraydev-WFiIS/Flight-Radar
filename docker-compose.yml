@@ -22,6 +22,7 @@ services:
       - ./services/db/create_db.sql:/docker-entrypoint-initdb.d/1-create.sql
       - ./services/db/pop_db.sql:/docker-entrypoint-initdb.d/2-pop.sql
       - ./services/db/create_views.sql:/docker-entrypoint-initdb.d/3-view.sql
+      - ./services/db/add_constraints.sql:/docker-entrypoint-initdb.d/4-constraints.sql
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
